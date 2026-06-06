@@ -17,7 +17,7 @@ input {
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             layout "tanuj-us"
             // Hack for switching to laptop keyboard without per-keyboard config
-            variant "dvp"
+            // variant "dvp"
             options "compose:ralt, ctrl:nocaps"
         }
     }
@@ -126,14 +126,13 @@ output "DP-1" {
 
 output "eDP-1" {
     mode "1920x1080"
-    position x=2560 y=1200
+    position x=500 y=1440
     scale 1
 }
 
-// WP TV
 output "DP-2" {
-  mode "1920x1080"
-  position x=2560 y=0
+  mode "2560x1440"
+  position x=0 y=0
   scale 1
 }
 
@@ -356,6 +355,8 @@ binds {
     Mod+Shift+B { spawn "firefox"; }
 
     Ctrl+Space { spawn "makoctl" "dismiss"; }
+
+    Super+backslash { spawn "systemctl" "hibernate";}
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
