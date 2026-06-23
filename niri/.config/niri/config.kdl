@@ -251,7 +251,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "swaybg" "-i" "Pictures/eighties-bg-alphabet-1440p.png"
+spawn-at-startup "swaybg" "-i" "~/Pictures/eighties-bg-alphabet-1440p.png"
 // TODO replace dunst systemd
 spawn-at-startup "mako"
 
@@ -349,7 +349,7 @@ binds {
     Mod+return { spawn "alacritty"; }
     Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock" "-c" "000000"; }
-    Super+Shift+L { spawn "systemctl" "hibernate"; }
+    Super+Shift+L { spawn "~/scripts/lock_hibernate.sh"; }
     Mod+Shift+G { spawn "~/.nix-profile/bin/telegram-desktop"; }
     Mod+Shift+D { spawn "~/scripts/niri-fuzzel-switcher.sh"; }
     Mod+Shift+B { spawn "firefox"; }
