@@ -95,3 +95,11 @@ function fixcamera() {
 source ~/src/zui/zui.plugin.zsh  # for zzcomplete
 source ~/src/zzcomplete/zzcomplete.plugin.zsh
 any-nix-shell zsh --info-right | source /dev/stdin
+
+## Android Studio
+
+export ANDROID_DEV=/run/media/tanuj/b4f61b23-ed88-4e28-bdd1-44bb8b8e36de/android_dev
+export ANDROID_HOME="$ANDROID_DEV/Android/Sdk"
+export ANDROID_USER_HOME="$ANDROID_DEV/Android/userhome"   # AVDs, adb keys
+export GRADLE_USER_HOME="$ANDROID_DEV/gradle"              # gradle caches
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_DEV/android-studio/bin"
