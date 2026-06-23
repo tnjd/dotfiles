@@ -9,7 +9,8 @@ while read i; do
   declare -a line_array="($i)"
   window_ids+=(${line_array[0]})
   window_titles+=("${line_array[1]} - ${line_array[2]} \0icon\x1f${line_array[1]}")
-done <<<$(niri msg --json windows | jq -r '.[] | select(.workspace_id == '"$cur_workspace"') | [ .id, .title] | "\""+join ("\" \"")+"\""')
+done <<<$(niri msg --json windows | jq -r '.[]  | [ .id, .title] | "\""+join ("\" \"")+"\""')
+# done <<<$(niri msg --json windows | jq -r '.[] | select(.workspace_id == '"$cur_workspace"') | [ .id, .title] | "\""+join ("\" \"")+"\""')
 
 result=$(
     printf "%b\n" "${window_titles[@]}" | fuzzel \
