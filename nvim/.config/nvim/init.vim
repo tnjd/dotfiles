@@ -83,7 +83,12 @@ if dein#load_state('/home/tanuj/.local/share/dein')
   " Base 16 colors
   call dein#add('chriskempson/base16-vim')
   " Autoformat for different langs
-  call dein#add('Chiel92/vim-autoformat')
+  call dein#add('vim-autoformat/vim-autoformat')
+
+  let g:formatdef_prettier_ts = "'npx prettier --parser typescript'"
+  let g:formatters_typescript = ['prettier_ts']
+  let g:formatters_typescriptreact = ['prettier_ts']
+
   " Dein command
   call dein#add('haya14busa/dein-command.vim')
   " commenting
@@ -168,9 +173,9 @@ call denite#custom#map('insert', 'j', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', 'k', '<denite:move_to_previous_line>', 'noremap')
 map <space>bb :Denite buffer<cr>
 
-let g:rustfmt_command="rustfmt --edition 2021"
+" let g:rustfmt_command="rustfmt --edition 2021"
 " Cargo fmt
-nmap <C-f> :RustFmt<CR>
+nmap <C-f> :Autoformat<CR>
 
 " CtrlP
 let g:ctrlp_follow_symlinks = 1
@@ -257,6 +262,8 @@ filetype indent on " automatically indent code
 " automatic commands
 if has('autocmd')
         " file type specific automatic commands
+        "
+        autocmd FileType typescript,typescriptreact setlocal shiftwidth=2 softtabstop=2
 
         " Jamal FPSP simulator source files
         autocmd BufRead,BufNewFile *.jss setlocal filetype=jss
